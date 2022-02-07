@@ -1,0 +1,14 @@
+@import "../assets/stylesheets/utils.scss";
+
+.header-wrapper {
+  min-height: 7vh;
+  width: 100%;
+  background: $dark;
+  // box-shadow: 0.1rem 0.1rem 0rem #444;
+  cursor: pointer;
+  // background: linear-gradient(to bottom right, $black 0%, $dark 80%);
+  background: linear-gradient($black, $dark, $alt-dark);
+  color: $white;
+  font-size: 1.5rem;
+  transition: all 0.8s;
+}
