@@ -12,6 +12,9 @@ const Form = () => {
   const handlePrev = ()=>{
     setPages(pages - 1)
   }
+  const handleSubmit = ()=>{
+    console.log('Submitting ');
+  }
   return (
     <div className='form-wrapper'>
       <div className='form'>
@@ -31,9 +34,12 @@ const Form = () => {
             </div>
           }
         </div>
-        <div className='footer'>
-          <button className='prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
-          <button className='next' disabled={pages===1} onClick={handleNext}>Next</button>
+        <div className='buttons'>
+          <div className='ctrl-btn'>
+            <button className='btn prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
+            <button className='btn next' disabled={pages===1} onClick={handleNext}>Next</button>
+          </div>
+          {pages===1 && <button className='btn submit-btn' onClick={handleSubmit}>Submit</button> }
         </div>
       </div>
     </div>
