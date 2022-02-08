@@ -7,7 +7,7 @@
   @include responsive(tab) {
     display: block;
     width: 60%;
-    min-height: 80vh;
+    min-height: 88vh;
     background: linear-gradient(to bottom right, $dark, $black 0%, $dark 80%);
 
     display: flex;
