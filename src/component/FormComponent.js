@@ -7,6 +7,7 @@ import {
   ErrorMessage,
  } from 'formik';
 import TextError from './TextError';
+import Cover from './Cover';
 
 import './form.scss';
 
@@ -30,8 +31,8 @@ const FormComponent = () => {
     confirmPassword: '',
   };
 
-  const onSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const onSubmit = (values) => {
+    console.log('I am here',values);
   }
 
   const validationSchema = Yup.object({
@@ -43,17 +44,19 @@ const FormComponent = () => {
   })
 
   return (
-    <Formik 
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-      validationSchema={validationSchema}>
-      <Form>
-        <div className='form-wrapper'>
+    <div className='form-page'>
+      <Cover />
+      <div className='form-wrapper'>
+        <Formik 
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          validationSchema={validationSchema}>
+          <Form>
           <div className='form'>
-            <div className='header'>
+            <div className='header form-div'>
               {pageArray[pages]}
             </div>
-            <div className='content'>
+            <div className='content form-div'>
               {
                 pages=== 0?
                 <div>
@@ -81,17 +84,18 @@ const FormComponent = () => {
                 </div>
               }
             </div>
-            <div className='buttons'>
+            <div className='form-div buttons'>
               <div className='ctrl-btn'>
                 <button className='btn prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
                 <button className='btn next' disabled={pages===1} onClick={handleNext}>Next</button>
               </div>
-              {pages===1 && <button className='btn submit-btn' onClick={onSubmit}>Submit</button> }
+              {pages===1 && <button type='button' className='btn submit-btn' onClick={onSubmit}>Submit</button> }
             </div>
           </div>
-        </div>
-      </Form>
-    </Formik>
+          </Form>
+        </Formik>
+      </div>
+    </div>
   )
 }
 
