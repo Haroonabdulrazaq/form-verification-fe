@@ -1,4 +1,4 @@
-import Form from './Form';
+import FormComponent from './FormComponent';
 import Header from './Header';
 import './App.scss';
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Form />
+      <FormComponent />
     </div>
   );
 }
