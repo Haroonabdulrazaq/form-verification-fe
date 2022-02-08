@@ -31,8 +31,9 @@ const FormComponent = () => {
     confirmPassword: '',
   };
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, {resetForm}) => {
     console.log('I am here',values);
+    resetForm({});
   }
 
   const validationSchema = Yup.object({
@@ -61,24 +62,24 @@ const FormComponent = () => {
                 pages=== 0?
                 <div>
                   <div className='div-input'>
-                    <Field type='email' name='email' placeholder='John@mail.com' className='input' />
+                    <Field type='email' id='email' name='email' placeholder='John@mail.com' className='input' />
                     <ErrorMessage name="email" component={TextError} />
                   </div>
                   <div className='div-input'>
-                    <Field type='text' name='firstname' placeholder='Firstname' className='input' />
+                    <Field type='text' id='firstname' name='firstname' placeholder='Firstname' className='input' />
                     <ErrorMessage name='firstname' component={TextError} />
                   </div>
                   <div className='div-input'>
-                    <Field type='text' name='lastname' placeholder='lastname' className='input' />
+                    <Field type='text' id='lastname' name='lastname' placeholder='lastname' className='input' />
                     <ErrorMessage name='lastname' component={TextError} />
                   </div>
                 </div> : <div>
                   <div className='div-input'>
-                    <Field type='password' name='password' placeholder='Password' className='input' />
+                    <Field type='password' id='password' name='password' placeholder='Password' className='input' />
                     <ErrorMessage name='password' component={TextError} />
                   </div>
                   <div className='div-input'>
-                    <Field type='password' name='confirmPassword' placeholder='Confirm Password' className='input' />
+                    <Field type='password' id='confirmPassword' name='confirmPassword' placeholder='Confirm Password' className='input' />
                     <ErrorMessage name='confirmPassword' component={TextError} />
                   </div>
                 </div>
@@ -89,7 +90,7 @@ const FormComponent = () => {
                 <button className='btn prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
                 <button className='btn next' disabled={pages===1} onClick={handleNext}>Next</button>
               </div>
-              {pages===1 && <button type='button' className='btn submit-btn' onClick={onSubmit}>Submit</button> }
+              {pages===1 && <button type='submit' className='btn submit-btn'>Submit</button> }
             </div>
           </div>
           </Form>
