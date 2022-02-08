@@ -5,7 +5,7 @@
   min-height: 7vh;
   width: 100%;
   background: $dark;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-family: 'Corinthia', cursive;
   cursor: pointer;
   padding-left: 1rem;
@@ -17,10 +17,10 @@
   align-self: flex-start;
   
   @include responsive(tab) {
-    font-size: 5rem;
+    font-size: 3rem;
   }
   @include responsive(large-screen) {
-    font-size: 7rem;
+    font-size: 5rem;
   }
   // box-shadow: 0.1rem 0.1rem 0rem #444;
   // background: linear-gradient(to bottom right, $black 0%, $dark 80%);

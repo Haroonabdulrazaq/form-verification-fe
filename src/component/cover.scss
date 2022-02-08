@@ -7,7 +7,7 @@
   @include responsive(tab) {
     display: block;
     width: 60%;
-    min-height: 88vh;
+    min-height: 91vh;
     background: linear-gradient(to bottom right, $dark, $black 0%, $dark 80%);
 
     display: flex;
@@ -18,5 +18,12 @@
       font-size: 3.5rem;
       color: $white;
     }
+  }
+
+  @include responsive(desktop) {
+    min-height: 93vh;
+  }
+  @include responsive(large-screen) {
+    min-height: 100vh;
   }
 }

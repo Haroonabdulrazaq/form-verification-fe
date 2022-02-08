@@ -6,6 +6,7 @@ import {
   Field,
   ErrorMessage,
  } from 'formik';
+ import axios from 'axios';
 import TextError from './TextError';
 import Cover from './Cover';
 
@@ -33,13 +34,28 @@ const FormComponent = () => {
 
   const onSubmit = (values, {resetForm}) => {
     console.log('I am here',values);
+    axios({
+      method: 'POST',
+      url: `${process.env.REACT_APP_BACKEND_URL}/create-user`,
+      data: values
+    }).then((res)=>{  // if resolved
+      console.log(res)
+    }).catch((error)=> { // if rejected
+      console.log(error)
+    })
     resetForm({});
   }
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid Email format').required('Email is required'),
-    firstname: Yup.string().required('Firstname is required'),
-    lastname: Yup.string().required('Lastname is required'),
+    firstname: Yup.string()
+                .min(2, 'Firstname is too Short!')
+                .max(50, 'Firstname is too Long!')
+                .required('Firstname is required'),
+    lastname: Yup.string()
+                .min(2, 'Lastname is too Short!')
+                .max(50, 'Lastname is too Long!')
+                .required('Lastname is required'),
     password: Yup.string().required('Password is required'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
   })
@@ -70,7 +86,7 @@ const FormComponent = () => {
                     <ErrorMessage name='firstname' component={TextError} />
                   </div>
                   <div className='div-input'>
-                    <Field type='text' id='lastname' name='lastname' placeholder='lastname' className='input' />
+                    <Field type='text' id='lastname' name='lastname' placeholder='Lastname' className='input' />
                     <ErrorMessage name='lastname' component={TextError} />
                   </div>
                 </div> : <div>
