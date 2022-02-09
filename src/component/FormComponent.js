@@ -34,6 +34,7 @@ const FormComponent = () => {
 
   const onSubmit = (values, {resetForm}) => {
     console.log('I am here',values);
+    setPages(0)
     axios({
       method: 'POST',
       url: `${process.env.REACT_APP_BACKEND_URL}/create-user`,
