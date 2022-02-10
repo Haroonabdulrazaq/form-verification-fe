@@ -9,12 +9,15 @@ import {
  import axios from 'axios';
 import TextError from './TextError';
 import Cover from './Cover';
+import Flash from './Flash';
 
 import './form.scss';
 
 
 const FormComponent = () => {
   const [pages, setPages] = useState(0);
+  const [messenger, setMessenger] = useState(false);
+  const [message, setMessage] = useState('');
   const pageArray=['1', '2']
 
   const handleNext = ()=>{
@@ -35,14 +38,18 @@ const FormComponent = () => {
   const onSubmit = (values, {resetForm}) => {
     console.log('I am here',values);
     setPages(0)
+    setMessenger(false)
     axios({
       method: 'POST',
       url: `${process.env.REACT_APP_BACKEND_URL}/create-user`,
       data: values
     }).then((res)=>{  // if resolved
-      console.log(res)
+      console.log(res);
+      setMessenger(true);
+      setMessage(res.data.msg);
     }).catch((error)=> { // if rejected
       console.log(error)
+      setMessage(error.response.data.msg);
     })
     resetForm({});
   }
@@ -63,6 +70,11 @@ const FormComponent = () => {
 
   return (
     <div className='form-page'>
+      {messenger && (
+        <Flash>
+          {message}
+        </Flash>
+      )}
       <Cover />
       <div className='form-wrapper'>
         <Formik 

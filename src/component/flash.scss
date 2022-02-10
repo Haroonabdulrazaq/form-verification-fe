@@ -1,0 +1,38 @@
+@import '../assets/stylesheets/utils.scss';
+@import '../assets/stylesheets/mediaQuery.scss';
+
+.flash-message {
+  position: fixed;
+  top: 7%;
+  right: 5%;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: $dark;
+  padding: 1rem 1.2rem;
+  margin: 1rem;
+  background: #ddd;
+  border-left: 5px solid $flash-color;
+  line-height: 1.7;
+  border-radius: 0 0.3rem 0.3rem 0;
+  box-shadow: $shadow;
+  animation: flashme 0.8s ease-in-out 1;
+
+  @include responsive(tab) {
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+  }
+
+  @include responsive(large-screen) {
+    font-size: 1.7rem;
+  }
+}
+
+.flash-message:hover {
+  cursor: pointer;
+}
+
+@keyframes flashme {
+  0% {right: 0%;}
+  50% {right: 10%;}
+  100% {right: 5%;}
+}
