@@ -34,16 +34,35 @@ const FormComponent = () => {
     confirmPassword: '',
   };
 
+  const getRegisteredUser = (id) =>{
+    console.log('ID in getRegUser in FE', id);
+    axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_BACKEND_URL}/user`,
+      params: {
+        id,
+      }
+    }).then ((res)=> {
+      console.log(res)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
+
   const onSubmit = (values, {resetForm}) => {
     console.log('I am here',values);
     setPages(0)
     setMessenger(false)
     axios({
       method: 'POST',
-      url: `${process.env.REACT_APP_BACKEND_URL}/create-user`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/user`,
       data: values
     }).then((res)=>{  // if resolved
       console.log(res);
+      if(res.data.status === 200) {
+        console.log('Status is 200');
+        getRegisteredUser(res.data.result[0].id); // This function will fetch the user object
+      }
       setMessenger(true);
       setMessage(res.data.msg);
     }).catch((error)=> { // if rejected
@@ -53,7 +72,7 @@ const FormComponent = () => {
     resetForm({});
   }
 
-  const validationSchema = Yup.object({
+  const validationSchema = Yup.object({ // Form validation rules
     email: Yup.string().email('Invalid Email format').required('Email is required'),
     firstname: Yup.string()
                 .min(2, 'Firstname is too short!')
@@ -85,25 +104,25 @@ const FormComponent = () => {
           onSubmit={onSubmit}
           validationSchema={validationSchema}>
           <Form>
-          <div className='form'>
-            <div className='header form-div'>
-              {pageArray[pages]}
-            </div>
-            <div className='content form-div'>
-              {
-                pages=== 0?
-                <FirstForm /> :
-                <SecondForm />
-              }
-            </div>
-            <div className='form-div buttons'>
-              <div className='ctrl-btn'>
-                <button className='btn prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
-                <button className='btn next' disabled={pages===1} onClick={handleNext}>Next</button>
+            <div className='form'>
+              <div className='header form-div'>
+                {pageArray[pages]}
               </div>
-              {pages===1 && <button type='submit' className='btn submit-btn'>Submit</button> }
+              <div className='content form-div'>
+                {
+                  pages=== 0?
+                  <FirstForm /> :
+                  <SecondForm />
+                }
+              </div>
+              <div className='form-div buttons'>
+                <div className='ctrl-btn'>
+                  <button className='btn prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
+                  <button className='btn next' disabled={pages===1} onClick={handleNext}>Next</button>
+                </div>
+                {pages===1 && <button type='submit' className='btn submit-btn'>Submit</button> }
+              </div>
             </div>
-          </div>
           </Form>
         </Formik>
       </div>
