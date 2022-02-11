@@ -7,9 +7,9 @@ import {
  import axios from 'axios';
 import FirstForm from './FirstForm';
 import SecondForm from './SecondForm';
-import Cover from './Cover';
-import Flash from './Flash';
-import DisplayUser from './DisplayUser';
+import Cover from '../Cover/Cover';
+import Flash from '../Flash';
+import DisplayUser from '../DisplayUser';
 
 import './form.scss';
 
