@@ -9,6 +9,9 @@ This is a test Project aimed at testing my proficiency in Reactjs, Form validati
 - React
 - Sass
 
+## Dependencies
+-- See package.json for full list of dependency.
+
 ## Live Link :link: :rocket: Coming Soon
  [Form Verification]()
 
@@ -40,7 +43,19 @@ NOTE: Make sure to Start the BAckend Before starting the FE; So that FE to start
 
 
 ## App Functionality
-The application
+The application accepts some user information like the EMail Firstname LAstname and Password. 
+The Application checks If the the users input conforms with the Validation Schema. If it does not, it will
+show an Error just below the input tag.
+
+The Application has 3 buttons, Which are displayed logocally. The Next button is shown on the first page while the Previous and Submit Button are shown on the Second page.
+
+If the submit button is press and all the informationm is filled in, the application makes a POST request to the BE.
+
+A notification pane is shown displaying a success message or a failure message according to what is returned from the BE.
+
+The application then makes a GET request, if the POST request is successfull or the user information has been saved in the DB.
+
+If the GET request is successfull it will then display the Users information with the success message.
 
 
  ## Deploy :rocket: Coming Soon!
