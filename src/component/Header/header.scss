@@ -1,0 +1,27 @@
+@import "../../assets/stylesheets/utils.scss";
+@import "../../assets/stylesheets/mediaQuery.scss";
+
+.header-wrapper {
+  min-height: 7vh;
+  width: 100%;
+  background: $dark;
+  font-size: 3rem;
+  font-family: 'Corinthia', cursive;
+  cursor: pointer;
+  padding-left: 1rem;
+  background: linear-gradient($black, $dark, $alt-dark);
+  color: $white;
+  transition: all 0.8s;
+  
+  display: flex;
+  align-self: flex-start;
+  
+  @include responsive(tab) {
+    font-size: 3rem;
+  }
+  @include responsive(large-screen) {
+    font-size: 5rem;
+  }
+  // box-shadow: 0.1rem 0.1rem 0rem #444;
+  // background: linear-gradient(to bottom right, $black 0%, $dark 80%);
+}

@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Form Verification
+This is a test Project aimed at testing my proficiency in Reactjs, Form validation, communication with Backend, How to write Test and Responsive Design.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Screenshot :camera:
+![screenshot](./src/assets/images/Form-verification.png)
 
-In the project directory, you can run:
+## Built with :heart:
+- React
+- Sass
 
-### `npm start`
+## Live Link :link: :rocket: Coming Soon
+ [Form Verification]()
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Set up :wrench:
+- [ ] Clone the repo using the git command <code> git clone https://github.com/Haroonabdulrazaq/form-verification-fe.git</code>
+- [ ] cd into the project directory <code> cd form-verification-fe</code>
+- [ ] To install all dependencies in package.json, Run <code> npm install </code>
+- [ ] To start the project <code> npm start </code>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+NOTE: Make sure to Start the BAckend Before starting the FE; So that FE to start from http://localhost:3001
 
-### `npm test`
+## Set Up Test
+- [ ] After runnning <code> npm install </code>
+- [ ] Run <code> npm run test </code>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Prerequisite :hammer_and_wrench:
+- Node  v16.13.2 or Higher version
+- npm  6.14.13 or Higher version
 
-### `npm run build`
+## Work Done
+- [ ] Set up React Environment
+- [ ] Create a responsive Form
+- [ ] Add Form validation (using Yup and Formik)
+- [ ] Add some cool Animations
+- [ ] Submit Form data to BE
+- [ ] Add Notification after sucessfull or unsuccessful submissions
+- [ ] Add Verification to users submission
+- [ ] Add Few Test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## App Functionality
+The application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+ ## Deploy :rocket: Coming Soon!
+This project is deployed to [Amazon AWS]()
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Author :man:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👤 **Haroon Abdulrazaq**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Github: [@githubhandle](https://github.com/Haroonabdulrazaq)
+- Twitter: [@twitterhandle](https://twitter.com/hanq_o)
+- Linkedin: [linkedin](https://www.linkedin.com/in/haroonabdulrazaq)
+- Portfolio: [Portfolio](https://www.haroonabdulrazaq.tech)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Show your support
 
-## Learn More
+Give a ⭐️ if you like this project!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgments
+- I acknowlege [Anonymous Bank] for giving a concise and straight forward specification.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📝 License
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is [MIT](lic.url) licensed.
