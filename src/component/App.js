@@ -1,5 +1,5 @@
 import FormComponent from './FormComponent';
-import Header from './Header';
+import Header from './Header/Header';
 import './App.scss';
 
 function App() {
