@@ -9,6 +9,7 @@ import FirstForm from './FirstForm';
 import SecondForm from './SecondForm';
 import Cover from './Cover';
 import Flash from './Flash';
+import DisplayUser from './DisplayUser';
 
 import './form.scss';
 
@@ -17,6 +18,7 @@ const FormComponent = () => {
   const [pages, setPages] = useState(0);
   const [messenger, setMessenger] = useState(false);
   const [message, setMessage] = useState('');
+  const [userInfo, setUserInfo] = useState(null);
   const pageArray=['1', '2']
 
   const handleNext = ()=>{
@@ -36,6 +38,7 @@ const FormComponent = () => {
 
   const getRegisteredUser = (id) =>{
     console.log('ID in getRegUser in FE', id);
+    setUserInfo(null);
     axios({
       method: 'GET',
       url: `${process.env.REACT_APP_BACKEND_URL}/user`,
@@ -44,9 +47,21 @@ const FormComponent = () => {
       }
     }).then ((res)=> {
       console.log(res)
+      // setUserInfo(res.data.result[0])
+      setUserInfo({
+        email: "aq@mail.com",
+        firstname: "wqa",
+        id: 22,
+        lastname: "ccx",
+        password: "$2a$10$BzsNafgF.0GZRbL6trGKAexaeVoerKw3XTaz3E3xufOFUoPGbsP4q"
+      })
     }).catch((error)=>{
       console.log(error)
     })
+  }
+
+  const handleClose =() =>{
+    setUserInfo(null)
   }
 
   const onSubmit = (values, {resetForm}) => {
@@ -126,6 +141,7 @@ const FormComponent = () => {
           </Form>
         </Formik>
       </div>
+        {userInfo && <DisplayUser handleClose={handleClose} userInfo={userInfo} />}
     </div>
   )
 }
