@@ -9,6 +9,7 @@ import FirstForm from './FirstForm';
 import SecondForm from './SecondForm';
 import Cover from '../Cover/Cover';
 import Flash from '../Flash';
+import Loader from '../Loader';
 import DisplayUser from '../DisplayUser';
 
 import './form.scss';
@@ -17,6 +18,7 @@ import './form.scss';
 const FormComponent = () => {
   const [pages, setPages] = useState(0);
   const [messenger, setMessenger] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [message, setMessage] = useState('');
   const [userInfo, setUserInfo] = useState(null);
   const pageArray=['1', '2']
@@ -47,14 +49,7 @@ const FormComponent = () => {
       }
     }).then ((res)=> {
       console.log(res)
-      // setUserInfo(res.data.result[0])
-      setUserInfo({
-        email: "aq@mail.com",
-        firstname: "wqa",
-        id: 22,
-        lastname: "ccx",
-        password: "$2a$10$BzsNafgF.0GZRbL6trGKAexaeVoerKw3XTaz3E3xufOFUoPGbsP4q"
-      })
+      setUserInfo(res.data.result[0])
     }).catch((error)=>{
       console.log(error)
     })
@@ -66,6 +61,7 @@ const FormComponent = () => {
 
   const onSubmit = (values, {resetForm}) => {
     console.log('I am here',values);
+    setLoader(true)
     setPages(0)
     setMessenger(false)
     axios({
@@ -80,8 +76,10 @@ const FormComponent = () => {
       }
       setMessenger(true);
       setMessage(res.data.msg);
+      setLoader(false);
     }).catch((error)=> { // if rejected
-      console.log(error)
+      console.log(error);
+      setLoader(false);
       setMessage(error.response.data.msg);
     })
     resetForm({});
@@ -135,7 +133,7 @@ const FormComponent = () => {
                   <button className='btn prev' disabled={pages===0} onClick={handlePrev}>Prev</button>
                   <button className='btn next' disabled={pages===1} onClick={handleNext}>Next</button>
                 </div>
-                {pages===1 && <button type='submit' className='btn submit-btn'>Submit</button> }
+                {pages===1 && <button type='submit' className='btn submit-btn'>{loader? <Loader />: 'Submit'}</button> }
               </div>
             </div>
           </Form>
