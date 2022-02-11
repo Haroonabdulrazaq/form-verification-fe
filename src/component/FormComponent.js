@@ -92,12 +92,12 @@ const FormComponent = () => {
     firstname: Yup.string()
                 .min(2, 'Firstname is too short!')
                 .max(50, 'Firstname is too long!')
-                .matches(/^[a-z]+$/, "Must be only Alphabet")
+                .matches(/[a-z]/, "Must be only Alphabet")
                 .required('Firstname is required'),
     lastname: Yup.string()
                 .min(2, 'Lastname is too short!')
                 .max(50, 'Lastname is too long!')
-                .matches(/^[a-z]+$/, "Must be only Alphabet")
+                .matches(/[a-z]/, "Must be only Alphabet")
                 .required('Lastname is required'),
     password: Yup.string()
                 .min(4, 'Password must be minimum of 4 characters')

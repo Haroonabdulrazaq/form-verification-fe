@@ -9,7 +9,7 @@ const FirstForm = () => {
   return (
     <div>
       <div className='div-input'>
-        <Field type='email' id='email' name='email' placeholder='John@mail.com' className='input' focus/>
+        <Field type='email' id='email' name='email' placeholder='John@mail.com' className='input' autoFocus/>
         <ErrorMessage name="email" component={TextError} />
       </div>
       <div className='div-input'>
