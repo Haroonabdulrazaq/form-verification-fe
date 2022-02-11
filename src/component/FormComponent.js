@@ -3,11 +3,10 @@ import * as Yup from 'yup';
 import {
   Formik,
   Form,
-  Field,
-  ErrorMessage,
  } from 'formik';
  import axios from 'axios';
-import TextError from './TextError';
+import FirstForm from './FirstForm';
+import SecondForm from './SecondForm';
 import Cover from './Cover';
 import Flash from './Flash';
 
@@ -57,14 +56,18 @@ const FormComponent = () => {
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid Email format').required('Email is required'),
     firstname: Yup.string()
-                .min(2, 'Firstname is too Short!')
-                .max(50, 'Firstname is too Long!')
+                .min(2, 'Firstname is too short!')
+                .max(50, 'Firstname is too long!')
+                .matches(/^[a-z]+$/, "Must be only Alphabet")
                 .required('Firstname is required'),
     lastname: Yup.string()
-                .min(2, 'Lastname is too Short!')
-                .max(50, 'Lastname is too Long!')
+                .min(2, 'Lastname is too short!')
+                .max(50, 'Lastname is too long!')
+                .matches(/^[a-z]+$/, "Must be only Alphabet")
                 .required('Lastname is required'),
-    password: Yup.string().required('Password is required'),
+    password: Yup.string()
+                .min(4, 'Password must be minimum of 4 characters')
+                .required('Password is required'),
     confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
   })
 
@@ -89,29 +92,8 @@ const FormComponent = () => {
             <div className='content form-div'>
               {
                 pages=== 0?
-                <div>
-                  <div className='div-input'>
-                    <Field type='email' id='email' name='email' placeholder='John@mail.com' className='input' />
-                    <ErrorMessage name="email" component={TextError} />
-                  </div>
-                  <div className='div-input'>
-                    <Field type='text' id='firstname' name='firstname' placeholder='Firstname' className='input' />
-                    <ErrorMessage name='firstname' component={TextError} />
-                  </div>
-                  <div className='div-input'>
-                    <Field type='text' id='lastname' name='lastname' placeholder='Lastname' className='input' />
-                    <ErrorMessage name='lastname' component={TextError} />
-                  </div>
-                </div> : <div>
-                  <div className='div-input'>
-                    <Field type='password' id='password' name='password' placeholder='Password' className='input' />
-                    <ErrorMessage name='password' component={TextError} />
-                  </div>
-                  <div className='div-input'>
-                    <Field type='password' id='confirmPassword' name='confirmPassword' placeholder='Confirm Password' className='input' />
-                    <ErrorMessage name='confirmPassword' component={TextError} />
-                  </div>
-                </div>
+                <FirstForm /> :
+                <SecondForm />
               }
             </div>
             <div className='form-div buttons'>
