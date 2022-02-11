@@ -10,7 +10,7 @@ This is a test Project aimed at testing my proficiency in Reactjs, Form validati
 - Sass
 
 ## Dependencies
---See package.json for full list of dependency.
+-- See package.json for full list of dependency.
 
 ## Live Link :link: :rocket: Coming Soon
  [Form Verification]()
